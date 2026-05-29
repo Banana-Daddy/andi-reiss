@@ -64,6 +64,10 @@ tailwind.config = {
   .tighter { letter-spacing:-0.04em; }
   .tightest { letter-spacing:-0.06em; }
 
+  /* hero ken-burns — slow cinematic drift */
+  .kenburns{ animation:kb 22s ease-in-out infinite alternate; transform-origin:60% 45%; }
+  @keyframes kb{ from{ transform:scale(1.06) translate(0,0); } to{ transform:scale(1.16) translate(-1.5%,-1%); } }
+
   /* film grain overlay */
   .grain::after{
     content:""; position:fixed; inset:-50%; z-index:60; pointer-events:none; opacity:.05;
@@ -82,14 +86,18 @@ tailwind.config = {
   .js .reveal{ opacity:0; transform:translateY(26px); }
   .reveal.in{ opacity:1; transform:none; transition:opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
 
-  /* filmstrip marquee */
+  /* filmstrip marquee — alternate frames stay in colour, the rest develop on hover */
   .strip{ display:flex; width:max-content; animation:slide 60s linear infinite; }
   .strip:hover{ animation-play-state:paused; }
+  .strip img:nth-child(even){ filter:none !important; }
   @keyframes slide{ to{ transform:translateX(-50%); } }
   .frame{ position:relative; }
   .frame::before,.frame::after{ content:""; position:absolute; left:0; right:0; height:14px; background:#0A0A0A;
-    background-image:repeating-linear-gradient(90deg,#0A0A0A 0 7px,#bbb6a8 7px 13px); background-size:20px 14px; opacity:.5; }
+    background-image:repeating-linear-gradient(90deg,#0A0A0A 0 7px,#bbb6a8 7px 13px); background-size:20px 14px; opacity:.5; z-index:5; }
   .frame::before{ top:0 } .frame::after{ bottom:0 }
+  .edgecode{ position:absolute; left:0; right:0; top:15px; z-index:6; pointer-events:none;
+    font-family:'Space Grotesk',monospace; font-size:9px; letter-spacing:.25em; color:#E0531F; opacity:.55;
+    display:flex; gap:46px; padding-left:14px; white-space:nowrap; overflow:hidden; }
 
   .timecode{ font-variant-numeric:tabular-nums; }
   .link-u{ background-image:linear-gradient(#E0531F,#E0531F); background-size:0% 1.5px; background-repeat:no-repeat; background-position:left bottom; transition:background-size .3s ease; }
@@ -97,7 +105,7 @@ tailwind.config = {
   .kicker{ font-size:.7rem; letter-spacing:.32em; text-transform:uppercase; color:#E0531F; }
   a:focus-visible, button:focus-visible{ outline:2px solid #E0531F; outline-offset:3px; border-radius:2px; }
   @media (prefers-reduced-motion: reduce){
-    .strip{animation:none} .grain::after{animation:none} *{scroll-behavior:auto}
+    .strip{animation:none} .grain::after{animation:none} .kenburns{animation:none} *{scroll-behavior:auto}
     .reveal, .js .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
     .bars-in .bar-top, .bars-in .bar-bot{ transition:none !important; }
   }
@@ -124,7 +132,7 @@ tailwind.config = {
 <header id="top" class="relative h-[100svh] min-h-[600px] w-full overflow-hidden">
   <div class="bar bar-top"></div>
   <div class="bar bar-bot"></div>
-  <img src="images/cine-car.webp" alt="A weathered green car lit dramatically out of near-darkness" fetchpriority="high" decoding="async" class="absolute inset-0 w-full h-full object-cover scale-105" style="filter:contrast(1.05) brightness(.62) saturate(.9)" width="1600" height="840">
+  <img src="images/cine-car.webp" alt="A weathered green car lit dramatically out of near-darkness" fetchpriority="high" decoding="async" class="kenburns absolute inset-0 w-full h-full object-cover" style="filter:contrast(1.05) brightness(.62) saturate(.9)" width="1600" height="840">
   <div class="absolute inset-0" style="background:radial-gradient(120% 90% at 30% 40%, transparent 0%, rgba(10,10,10,.55) 60%, rgba(10,10,10,.92) 100%)"></div>
 
   <div class="relative z-40 h-full max-w-7xl mx-auto px-5 md:px-8 flex flex-col justify-end pb-[14vh] md:pb-[16vh]">
@@ -157,24 +165,24 @@ tailwind.config = {
 <section class="border-y border-bone/10 bg-coal py-4 overflow-hidden">
   <div class="strip text-bone/40 font-display text-2xl md:text-4xl tighter whitespace-nowrap">
     <span class="flex items-center">
-      <span class="px-6">Documentarian</span><span class="text-ember">/</span>
-      <span class="px-6">Screenwriter</span><span class="text-ember">/</span>
-      <span class="px-6">Photographer</span><span class="text-ember">/</span>
-      <span class="px-6">Drone Pilot</span><span class="text-ember">/</span>
-      <span class="px-6">Sound Designer</span><span class="text-ember">/</span>
-      <span class="px-6">Author</span><span class="text-ember">/</span>
-      <span class="px-6">Editor</span><span class="text-ember">/</span>
-      <span class="px-6">Educator</span><span class="text-ember">/</span>
+      <span class="px-6">Documentarian</span><span class="text-bone/25">/</span>
+      <span class="px-6">Screenwriter</span><span class="text-bone/25">/</span>
+      <span class="px-6">Photographer</span><span class="text-bone/25">/</span>
+      <span class="px-6">Drone Pilot</span><span class="text-bone/25">/</span>
+      <span class="px-6">Sound Designer</span><span class="text-bone/25">/</span>
+      <span class="px-6">Author</span><span class="text-bone/25">/</span>
+      <span class="px-6">Editor</span><span class="text-bone/25">/</span>
+      <span class="px-6">Educator</span><span class="text-bone/25">/</span>
     </span>
     <span class="flex items-center" aria-hidden="true">
-      <span class="px-6">Documentarian</span><span class="text-ember">/</span>
-      <span class="px-6">Screenwriter</span><span class="text-ember">/</span>
-      <span class="px-6">Photographer</span><span class="text-ember">/</span>
-      <span class="px-6">Drone Pilot</span><span class="text-ember">/</span>
-      <span class="px-6">Sound Designer</span><span class="text-ember">/</span>
-      <span class="px-6">Author</span><span class="text-ember">/</span>
-      <span class="px-6">Editor</span><span class="text-ember">/</span>
-      <span class="px-6">Educator</span><span class="text-ember">/</span>
+      <span class="px-6">Documentarian</span><span class="text-bone/25">/</span>
+      <span class="px-6">Screenwriter</span><span class="text-bone/25">/</span>
+      <span class="px-6">Photographer</span><span class="text-bone/25">/</span>
+      <span class="px-6">Drone Pilot</span><span class="text-bone/25">/</span>
+      <span class="px-6">Sound Designer</span><span class="text-bone/25">/</span>
+      <span class="px-6">Author</span><span class="text-bone/25">/</span>
+      <span class="px-6">Editor</span><span class="text-bone/25">/</span>
+      <span class="px-6">Educator</span><span class="text-bone/25">/</span>
     </span>
   </div>
 </section>
@@ -191,6 +199,7 @@ tailwind.config = {
 
   <!-- Filmstrip -->
   <div class="relative -mx-5 md:-mx-8 overflow-hidden frame py-4 bg-coal/60">
+    <div class="edgecode" aria-hidden="true"><span>AR-24A</span><span>KODAK 5219</span><span>SAFETY FILM</span><span>·· 25 ··</span><span>AR-24A</span><span>KODAK 5219</span><span>SAFETY FILM</span><span>·· 26 ··</span><span>AR-24A</span><span>KODAK 5219</span><span>SAFETY FILM</span></div>
     <div class="strip gap-3 px-3">
       <img src="images/doc-diner.webp" class="h-52 md:h-72 w-auto object-cover flex-shrink-0 grayscale hover:grayscale-0 transition duration-500" alt="Black-and-white street photograph: a diner sign reads Welcome, Please Seat Yourself" loading="lazy" width="900" height="1200">
       <img src="images/doc-tube.webp" class="h-52 md:h-72 w-auto object-cover flex-shrink-0 grayscale hover:grayscale-0 transition duration-500" alt="Portrait of a young man in a London Underground carriage" loading="lazy" width="959" height="1200">
@@ -242,41 +251,74 @@ tailwind.config = {
 
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-bone/10 border border-bone/10">
     <!-- card -->
-    <article class="group bg-ink p-7 md:p-8 hover:bg-coal transition-colors duration-300 reveal">
-      <span class="timecode text-ash text-xs">001</span>
-      <h3 class="font-display font-bold text-2xl mt-3 mb-2 tighter group-hover:text-ember transition-colors">A Small Stone</h3>
-      <p class="text-ash text-xs uppercase tracking-[0.2em] mb-4">Documentary</p>
-      <p class="text-bone/65 text-sm leading-relaxed">An intimate documentary built on patience and proximity — the small thing that turns out to hold everything.</p>
+    <article class="group bg-ink overflow-hidden reveal flex flex-col">
+      <div class="relative h-40 overflow-hidden">
+        <img src="images/still-coffee.webp" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 scale-105 group-hover:scale-100" alt="A cup of coffee steaming in low light" loading="lazy" width="801" height="1200">
+        <span class="absolute top-3 left-3 text-[0.6rem] tracking-[0.18em] uppercase bg-ink/75 text-bone px-2.5 py-1 rounded-full backdrop-blur-sm flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-ember"></span>In Production</span>
+      </div>
+      <div class="p-6 md:p-7 flex-1 flex flex-col">
+        <div class="flex items-center justify-between mb-2"><span class="timecode text-ash text-xs">001</span><span class="text-ash text-[0.65rem] uppercase tracking-[0.18em]">2025 · Feature Doc</span></div>
+        <h3 class="font-display font-bold text-2xl mb-2 tighter">A Small Stone</h3>
+        <p class="text-bone/60 text-sm leading-relaxed">An intimate documentary built on patience and proximity — the small thing that turns out to hold everything.</p>
+      </div>
     </article>
-    <article class="group bg-ink p-7 md:p-8 hover:bg-coal transition-colors duration-300 reveal">
-      <span class="timecode text-ash text-xs">002</span>
-      <h3 class="font-display font-bold text-2xl mt-3 mb-2 tighter group-hover:text-ember transition-colors">Club Q</h3>
-      <p class="text-ash text-xs uppercase tracking-[0.2em] mb-4">Documentary · A Survivor's Story</p>
-      <p class="text-bone/65 text-sm leading-relaxed">Survivorship, community and resilience after tragedy — told with the consent and the cadence of the people who lived it.</p>
+    <article class="group bg-ink overflow-hidden reveal flex flex-col">
+      <div class="relative h-40 overflow-hidden">
+        <img src="images/doc-beach-storm.webp" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 scale-105 group-hover:scale-100" alt="A child on a beach beneath dramatic storm clouds" loading="lazy" width="800" height="1200">
+        <span class="absolute top-3 left-3 text-[0.6rem] tracking-[0.18em] uppercase bg-ink/75 text-bone px-2.5 py-1 rounded-full backdrop-blur-sm flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-ember"></span>In Production</span>
+      </div>
+      <div class="p-6 md:p-7 flex-1 flex flex-col">
+        <div class="flex items-center justify-between mb-2"><span class="timecode text-ash text-xs">002</span><span class="text-ash text-[0.65rem] uppercase tracking-[0.18em]">2025 · Documentary</span></div>
+        <h3 class="font-display font-bold text-2xl mb-2 tighter">Club Q</h3>
+        <p class="text-ember/80 text-[0.7rem] uppercase tracking-[0.15em] mb-2">A Survivor's Story</p>
+        <p class="text-bone/60 text-sm leading-relaxed">Survivorship, community and resilience after tragedy — told with the consent and the cadence of the people who lived it.</p>
+      </div>
     </article>
-    <article class="group bg-ink p-7 md:p-8 hover:bg-coal transition-colors duration-300 reveal">
-      <span class="timecode text-ash text-xs">003</span>
-      <h3 class="font-display font-bold text-2xl mt-3 mb-2 tighter group-hover:text-ember transition-colors">Shifting Sands</h3>
-      <p class="text-ash text-xs uppercase tracking-[0.2em] mb-4">Documentary · Artists of the Desert</p>
-      <p class="text-bone/65 text-sm leading-relaxed">The makers of the Coachella Valley — a portrait of art, heat and reinvention shot across the desert he now calls home.</p>
+    <article class="group bg-ink overflow-hidden reveal flex flex-col">
+      <div class="relative h-40 overflow-hidden">
+        <img src="images/land-ps-sunset.webp" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 scale-105 group-hover:scale-100" alt="A vivid desert sunset over palm silhouettes" loading="lazy" width="1200" height="900">
+        <span class="absolute top-3 left-3 text-[0.6rem] tracking-[0.18em] uppercase bg-ink/75 text-bone px-2.5 py-1 rounded-full backdrop-blur-sm flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-ember"></span>Post-Production</span>
+      </div>
+      <div class="p-6 md:p-7 flex-1 flex flex-col">
+        <div class="flex items-center justify-between mb-2"><span class="timecode text-ash text-xs">003</span><span class="text-ash text-[0.65rem] uppercase tracking-[0.18em]">2024 · Documentary</span></div>
+        <h3 class="font-display font-bold text-2xl mb-2 tighter">Shifting Sands</h3>
+        <p class="text-ember/80 text-[0.7rem] uppercase tracking-[0.15em] mb-2">Artists of the Desert</p>
+        <p class="text-bone/60 text-sm leading-relaxed">The makers of the Coachella Valley — a portrait of art, heat and reinvention shot across the desert he now calls home.</p>
+      </div>
     </article>
-    <article class="group bg-ink p-7 md:p-8 hover:bg-coal transition-colors duration-300 reveal">
-      <span class="timecode text-ash text-xs">004</span>
-      <h3 class="font-display font-bold text-2xl mt-3 mb-2 tighter group-hover:text-ember transition-colors">Ayahuasca Experiment</h3>
-      <p class="text-ash text-xs uppercase tracking-[0.2em] mb-4">Ethnographic Documentary</p>
-      <p class="text-bone/65 text-sm leading-relaxed">An ethnographic study of ritual, perception and the boundary between belief and evidence.</p>
+    <article class="group bg-ink overflow-hidden reveal flex flex-col">
+      <div class="relative h-40 overflow-hidden">
+        <img src="images/land-swamp.webp" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 scale-105 group-hover:scale-100" alt="Spanish moss reflected in still swamp water" loading="lazy" width="1200" height="900">
+        <span class="absolute top-3 left-3 text-[0.6rem] tracking-[0.18em] uppercase bg-ink/75 text-bone/80 px-2.5 py-1 rounded-full backdrop-blur-sm flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-ash"></span>In Development</span>
+      </div>
+      <div class="p-6 md:p-7 flex-1 flex flex-col">
+        <div class="flex items-center justify-between mb-2"><span class="timecode text-ash text-xs">004</span><span class="text-ash text-[0.65rem] uppercase tracking-[0.18em]">2026 · Ethnographic</span></div>
+        <h3 class="font-display font-bold text-2xl mb-2 tighter">Ayahuasca Experiment</h3>
+        <p class="text-bone/60 text-sm leading-relaxed">An ethnographic study of ritual, perception and the boundary between belief and evidence.</p>
+      </div>
     </article>
-    <article class="group bg-ink p-7 md:p-8 hover:bg-coal transition-colors duration-300 reveal">
-      <span class="timecode text-ash text-xs">005</span>
-      <h3 class="font-display font-bold text-2xl mt-3 mb-2 tighter group-hover:text-ember transition-colors">Patriot of the Streets</h3>
-      <p class="text-ash text-xs uppercase tracking-[0.2em] mb-4">Documentary · The Ted Hayes Story</p>
-      <p class="text-bone/65 text-sm leading-relaxed">A life spent on America's pavements — homelessness, activism and one man's refusal to be invisible.</p>
+    <article class="group bg-ink overflow-hidden reveal flex flex-col">
+      <div class="relative h-40 overflow-hidden">
+        <img src="images/doc-mirror-cab.webp" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 scale-105 group-hover:scale-100" alt="A New York street reflected in a round mirror" loading="lazy" width="993" height="1200">
+        <span class="absolute top-3 left-3 text-[0.6rem] tracking-[0.18em] uppercase bg-ink/75 text-bone/80 px-2.5 py-1 rounded-full backdrop-blur-sm flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-ash"></span>In Development</span>
+      </div>
+      <div class="p-6 md:p-7 flex-1 flex flex-col">
+        <div class="flex items-center justify-between mb-2"><span class="timecode text-ash text-xs">005</span><span class="text-ash text-[0.65rem] uppercase tracking-[0.18em]">2025 · Documentary</span></div>
+        <h3 class="font-display font-bold text-2xl mb-2 tighter">Patriot of the Streets</h3>
+        <p class="text-ember/80 text-[0.7rem] uppercase tracking-[0.15em] mb-2">The Ted Hayes Story</p>
+        <p class="text-bone/60 text-sm leading-relaxed">A life spent on America's pavements — homelessness, activism and one man's refusal to be invisible.</p>
+      </div>
     </article>
-    <article class="group bg-ink p-7 md:p-8 hover:bg-coal transition-colors duration-300 reveal">
-      <span class="timecode text-ash text-xs">006</span>
-      <h3 class="font-display font-bold text-2xl mt-3 mb-2 tighter group-hover:text-ember transition-colors">‘trans and.’</h3>
-      <p class="text-ash text-xs uppercase tracking-[0.2em] mb-4">Documentary · In Development</p>
-      <p class="text-bone/65 text-sm leading-relaxed">Identity beyond the headline — a film that lets its subjects define their own terms.</p>
+    <article class="group bg-ink overflow-hidden reveal flex flex-col">
+      <div class="relative h-40 overflow-hidden">
+        <img src="images/doc-tube.webp" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-700 scale-105 group-hover:scale-100" alt="A contemplative portrait of a young man on the London Underground" loading="lazy" width="959" height="1200">
+        <span class="absolute top-3 left-3 text-[0.6rem] tracking-[0.18em] uppercase bg-ink/75 text-bone/80 px-2.5 py-1 rounded-full backdrop-blur-sm flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-ash"></span>In Development</span>
+      </div>
+      <div class="p-6 md:p-7 flex-1 flex flex-col">
+        <div class="flex items-center justify-between mb-2"><span class="timecode text-ash text-xs">006</span><span class="text-ash text-[0.65rem] uppercase tracking-[0.18em]">2026 · Documentary</span></div>
+        <h3 class="font-display font-bold text-2xl mb-2 tighter">‘trans and.’</h3>
+        <p class="text-bone/60 text-sm leading-relaxed">Identity beyond the headline — a film that lets its subjects define their own terms.</p>
+      </div>
     </article>
   </div>
 </section>

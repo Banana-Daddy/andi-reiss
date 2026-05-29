@@ -24,6 +24,11 @@ Source of truth: https://andireiss.wordpress.com/ (homepage, /touch, /multidisci
 - **Editorial masthead device.** "EST. 1992 · VOL. XXXII" uses 1992 = his career start year (Media Producer, Natural Sound), which is confirmed; the "Vol." numbering is a decorative newspaper conceit, not a real publication.
 - **Photo captions** (e.g., "Moonrise · the American road," "Palm Springs · golden hour") are my descriptive interpretations of the images, not titles from the source. Adjust if any are mislocated.
 - **GPS coordinates** in the Archive direction (33.83°N 116.54°W) are approximate Palm Springs coordinates used as a design device.
+- **Production statuses & years** (added in the design-improvement pass). Each film now carries a stage badge (In Production / Post-Production / In Development) and a year (2024–26), shown consistently across all three directions. These are **my reasonable assignments**, not confirmed by the source — please correct each film's real stage/year.
+- **Editorial Slate datelines.** "COLORADO SPRINGS" (Club Q — the real location of the Club Q tragedy) and "LOS ANGELES" (Ted Hayes — LA-based activist) are plausible/likely; "PALM SPRINGS" and "COACHELLA VALLEY" follow his base and the Shifting Sands subject. Confirm each.
+- **Book excerpt** (Editorial → The Book): the italic line *"The interstate doesn't care where you're from…"* under "From the opening pages" is **placeholder prose I wrote** to show the layout — replace with Andi's actual opening lines from *Somewhere, America*.
+- **Archive document flourishes** ("DOC. NO. AR-0001-MD", "FIG. 1 — FIELD CONTACT SHEET", "REV 2.4", barcode, registration mark) are decorative "field-document" devices, not real catalog identifiers.
+- **Filmstrip edge-codes** (Cinematic — "AR-24A · KODAK 5219 · SAFETY FILM") are decorative 35mm film-rail markings for authenticity, not real stock data.
 
 ## Fixed during review
 - None — built fresh. (One mobile polish fix applied during VERIFY: hid the decorative "SCROLL" cue on small screens in the cinematic hero to avoid overlapping the tagline.)

@@ -53,11 +53,20 @@ tailwind.config = {
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   html{ scroll-behavior:smooth; }
-  body{ background:#EAE8E1; color:#111110; font-family:'Space Mono',monospace; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  body{ background:#EAE8E1; color:#111110; font-family:'Space Mono',monospace; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+    background-image:radial-gradient(rgba(17,17,16,.07) 1px, transparent 1px); background-size:22px 22px; background-position:-1px -1px; }
   .sans{ font-family:'Public Sans',sans-serif; }
+  /* document flourishes */
+  .barcode{ height:34px; width:100%; background-image:repeating-linear-gradient(90deg,#111110 0 2px,transparent 2px 5px,#111110 5px 6px,transparent 6px 10px,#111110 10px 13px,transparent 13px 14px,#111110 14px 18px,transparent 18px 20px); }
+  .regmark{ width:16px; height:16px; position:relative; flex:none; }
+  .regmark::before,.regmark::after{ content:""; position:absolute; background:#FF4D00; }
+  .regmark::before{ left:50%; top:0; width:1px; height:100%; transform:translateX(-.5px); }
+  .regmark::after{ top:50%; left:0; height:1px; width:100%; transform:translateY(-.5px); }
   .b1{ border:1px solid #111110; } .bt{ border-top:1px solid #111110; } .bb{ border-bottom:1px solid #111110; }
   .b2{ border:2px solid #111110; }
-  .marq{ display:flex; width:max-content; animation:m 30s linear infinite; }
+  .marq{ display:flex; width:max-content; animation:m 30s linear infinite;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent); }
   @keyframes m{ to{ transform:translateX(-50%); } }
   .reveal{ } .js .reveal{ opacity:0; transform:translateY(14px); }
   .reveal.in{ opacity:1; transform:none; transition:opacity .6s ease, transform .6s ease; }
@@ -67,9 +76,13 @@ tailwind.config = {
   .row:hover .haz{ color:#FF4D00; }
   .row:hover .thumb{ filter:none; opacity:1; }
   .detail{ max-height:0; overflow:hidden; transition:max-height .45s cubic-bezier(.4,0,.2,1); }
-  .row.open .detail{ max-height:340px; }
+  .row.open .detail{ max-height:380px; }
   .row.open{ background:#111110; color:#EAE8E1; }
   .row.open .haz{ color:#FF4D00; }
+  /* hazard left-border when a row activates */
+  .row:hover, .row.open{ box-shadow:inset 4px 0 0 #FF4D00; }
+  /* expanded prose reads as sans, not mono, for legibility */
+  .detail p{ font-family:'Public Sans',sans-serif; font-size:0.92rem; line-height:1.6; }
   .plus{ transition:transform .3s ease; }
   .row.open .plus{ transform:rotate(45deg); }
   .thumb{ filter:grayscale(1) contrast(1.1); opacity:.85; }
@@ -121,7 +134,24 @@ tailwind.config = {
       <div class="bb p-5 flex justify-between text-sm"><span class="text-mute">ROLE</span><span class="font-bold text-right">Trans-Media<br>Producer</span></div>
       <div class="bb p-5 flex justify-between text-sm"><span class="text-mute">BASE</span><span class="font-bold">Palm Springs, CA</span></div>
       <div class="bb p-5 flex justify-between text-sm"><span class="text-mute">CERT</span><span class="font-bold">FAA Part 107</span></div>
-      <div class="p-5 flex justify-between text-sm"><span class="text-mute">STATUS</span><span class="haz text-haz font-bold">● ACTIVE</span></div>
+      <div class="bb p-5 flex justify-between text-sm"><span class="text-mute">STATUS</span><span class="text-haz font-bold">● ACTIVE</span></div>
+      <!-- field contact sheet -->
+      <div class="bb p-5">
+        <p class="text-mute text-xs mb-3">FIG. 1 — FIELD CONTACT SHEET</p>
+        <div class="grid grid-cols-3 gap-1.5">
+          <img src="images/doc-tube.webp" class="w-full h-16 object-cover b1 grayscale contrast-110" alt="Contact-sheet frame: London Underground portrait" loading="lazy" width="959" height="1200">
+          <img src="images/doc-diner.webp" class="w-full h-16 object-cover b1 grayscale contrast-110" alt="Contact-sheet frame: diner sign" loading="lazy" width="900" height="1200">
+          <img src="images/street-guitars.webp" class="w-full h-16 object-cover b1 grayscale contrast-110" alt="Contact-sheet frame: rusted truck" loading="lazy" width="900" height="1200">
+          <img src="images/doc-mirror-cab.webp" class="w-full h-16 object-cover b1 grayscale contrast-110" alt="Contact-sheet frame: New York mirror" loading="lazy" width="993" height="1200">
+          <img src="images/land-swamp.webp" class="w-full h-16 object-cover b1 grayscale contrast-110" alt="Contact-sheet frame: swamp reflection" loading="lazy" width="1200" height="900">
+          <img src="images/land-ps-sunset.webp" class="w-full h-16 object-cover b1 grayscale contrast-110" alt="Contact-sheet frame: desert sunset" loading="lazy" width="1200" height="900">
+        </div>
+      </div>
+      <!-- barcode + rev stamp -->
+      <div class="p-5 flex items-end justify-between gap-4">
+        <div class="flex-1"><div class="barcode" aria-hidden="true"></div><p class="text-mute text-[0.6rem] mt-1.5 tracking-[0.2em]">AR-0001-MD</p></div>
+        <div class="flex items-center gap-2 text-mute text-[0.6rem] leading-tight text-right"><span>REV 2.4<br>33.83°N</span><span class="regmark" aria-hidden="true"></span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -129,10 +159,17 @@ tailwind.config = {
 <!-- INDEX: DISCIPLINES -->
 <section id="index" class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16">
   <div class="flex items-baseline justify-between mb-5">
-    <h2 class="text-sm uppercase tracking-[0.3em] text-mute">§01 — Disciplines</h2>
+    <h2 class="text-sm uppercase tracking-[0.3em] text-mute"><span class="text-haz">§01</span> — Disciplines</h2>
     <span class="text-xs text-mute hidden sm:block">[ click any row to expand ]</span>
   </div>
-  <div class="b1">
+  <!-- mock database controls -->
+  <div class="b1 bb-0 flex flex-wrap items-center gap-x-6 gap-y-2 px-4 py-2.5 text-xs text-mute border-b-0 mb-0" style="border-bottom:none">
+    <span><span class="text-ink">07</span> ENTRIES</span>
+    <span class="hidden sm:inline">SORT: <span class="text-ink">No. ▲</span></span>
+    <span class="hidden sm:inline">FILTER: <span class="text-ink">ALL</span></span>
+    <span class="ml-auto hidden md:inline">FORMAT: MANIFEST</span>
+  </div>
+  <div class="b1 border-t-0">
     <!-- header row -->
     <div class="hidden md:grid grid-cols-12 bb px-4 py-2 text-xs uppercase tracking-widest text-mute">
       <span class="col-span-1">No.</span><span class="col-span-4">Discipline</span><span class="col-span-3">Detail</span><span class="col-span-3">Tooling</span><span class="col-span-1 text-right">+</span>
@@ -256,23 +293,23 @@ tailwind.config = {
 <!-- INDEX: SLATE -->
 <section class="max-w-7xl mx-auto px-4 md:px-6 pb-12 md:pb-16">
   <div class="flex items-baseline justify-between mb-5">
-    <h2 class="text-sm uppercase tracking-[0.3em] text-mute">§02 — The Slate / In Production</h2>
+    <h2 class="text-sm uppercase tracking-[0.3em] text-mute"><span class="text-haz">§02</span> — The Slate / In Production</h2>
     <span class="text-xs text-mute">2025—26</span>
   </div>
   <div class="b1 grid sm:grid-cols-2 lg:grid-cols-3">
-    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">001 / DOCUMENTARY</p><h3 class="sans font-semibold text-xl mb-2">A Small Stone</h3><p class="text-sm opacity-70">Patience and proximity — the small thing that holds everything.</p></div>
-    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">002 / SURVIVOR'S STORY</p><h3 class="sans font-semibold text-xl mb-2">Club Q</h3><p class="text-sm opacity-70">Survivorship and community after tragedy.</p></div>
-    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">003 / DESERT</p><h3 class="sans font-semibold text-xl mb-2">Shifting Sands</h3><p class="text-sm opacity-70">Artists of the Coachella Valley.</p></div>
-    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">004 / ETHNOGRAPHIC</p><h3 class="sans font-semibold text-xl mb-2">Ayahuasca Experiment</h3><p class="text-sm opacity-70">Ritual, perception and evidence.</p></div>
-    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">005 / PROFILE</p><h3 class="sans font-semibold text-xl mb-2">Patriot of the Streets</h3><p class="text-sm opacity-70">The Ted Hayes story.</p></div>
-    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">006 / DEVELOPMENT</p><h3 class="sans font-semibold text-xl mb-2">‘trans and.’</h3><p class="text-sm opacity-70">Identity beyond the headline.</p></div>
+    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors flex flex-col"><p class="text-haz text-xs mb-3">001 / DOCUMENTARY</p><h3 class="sans font-semibold text-xl mb-2">A Small Stone</h3><p class="text-sm opacity-70">Patience and proximity — the small thing that holds everything.</p><p class="text-[0.6rem] uppercase tracking-[0.2em] mt-4 opacity-70">▮ In Production</p></div>
+    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors flex flex-col"><p class="text-haz text-xs mb-3">002 / SURVIVOR'S STORY</p><h3 class="sans font-semibold text-xl mb-2">Club Q</h3><p class="text-sm opacity-70">Survivorship and community after tragedy.</p><p class="text-[0.6rem] uppercase tracking-[0.2em] mt-4 opacity-70">▮ In Production</p></div>
+    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors flex flex-col"><p class="text-haz text-xs mb-3">003 / DESERT</p><h3 class="sans font-semibold text-xl mb-2">Shifting Sands</h3><p class="text-sm opacity-70">Artists of the Coachella Valley.</p><p class="text-[0.6rem] uppercase tracking-[0.2em] mt-4 opacity-70">▮ Post-Production</p></div>
+    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors flex flex-col"><p class="text-haz text-xs mb-3">004 / ETHNOGRAPHIC</p><h3 class="sans font-semibold text-xl mb-2">Ayahuasca Experiment</h3><p class="text-sm opacity-70">Ritual, perception and evidence.</p><p class="text-[0.6rem] uppercase tracking-[0.2em] mt-4 opacity-50">▯ In Development</p></div>
+    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors flex flex-col"><p class="text-haz text-xs mb-3">005 / PROFILE</p><h3 class="sans font-semibold text-xl mb-2">Patriot of the Streets</h3><p class="text-sm opacity-70">The Ted Hayes story.</p><p class="text-[0.6rem] uppercase tracking-[0.2em] mt-4 opacity-50">▯ In Development</p></div>
+    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors flex flex-col"><p class="text-haz text-xs mb-3">006 / DEVELOPMENT</p><h3 class="sans font-semibold text-xl mb-2">‘trans and.’</h3><p class="text-sm opacity-70">Identity beyond the headline.</p><p class="text-[0.6rem] uppercase tracking-[0.2em] mt-4 opacity-50">▯ In Development</p></div>
   </div>
 </section>
 
 <!-- DOSSIER / CREDS -->
 <section class="bg-ink text-bg">
   <div class="max-w-7xl mx-auto px-4 md:px-6 py-14 md:py-20">
-    <h2 class="text-sm uppercase tracking-[0.3em] text-bg/50 mb-8">§03 — Dossier</h2>
+    <h2 class="text-sm uppercase tracking-[0.3em] text-bg/50 mb-8"><span class="text-haz">§03</span> — Dossier</h2>
     <div class="grid md:grid-cols-12 gap-8">
       <blockquote class="md:col-span-7">
         <p class="sans text-2xl md:text-4xl leading-snug font-medium">“A raw and honest approach that stands out — <span class="text-haz">emphasising truth over artifice.</span>”</p>
@@ -290,7 +327,7 @@ tailwind.config = {
 
 <!-- CONTACT -->
 <footer id="desk" class="max-w-7xl mx-auto px-4 md:px-6 py-14 md:py-20">
-  <h2 class="text-sm uppercase tracking-[0.3em] text-mute mb-6">§04 — Open a Line</h2>
+  <h2 class="text-sm uppercase tracking-[0.3em] text-mute mb-6"><span class="text-haz">§04</span> — Open a Line</h2>
   <p class="sans font-semibold leading-[0.95] mb-10" style="font-size:clamp(2.2rem,8vw,5.5rem); letter-spacing:-0.03em">Every line<br>is clickable.</p>
   <div class="b1">
     <a href="mailto:andi@andireiss.com" class="row bb grid grid-cols-12 px-4 py-5 items-center" style="cursor:pointer">
