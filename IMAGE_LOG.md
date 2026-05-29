@@ -9,9 +9,10 @@ The client (Andi Reiss) is a working documentary photographer with a deep, high-
 - 25 selected and kept; spread across documentary, street, portrait, desert/travelogue, and atmosphere.
 - **3 excluded for watermark/attribution reasons** (see `ACCURACY.md`): two carried other photographers' watermarks, one carried a charity's logo.
 
-## Derived assets (sips, no API)
-- `og.jpg`, `og-cinematic.jpg`, `og-editorial.jpg`, `og-archive.jpg` — 1200×630 crops from local photos.
+## Derived assets (sips / PIL, no API)
+- `og.jpg`, `og-cinematic.jpg`, `og-editorial.jpg`, `og-archive.jpg` — 1200×630 crops from local photos (kept as JPG — OG/social scrapers prefer it).
 - `favicon.png` (256), `favicon-512.png` (512), `apple-touch-icon.png` (180) — "AR" monogram generated with Python PIL (text render, no image API).
+- **WebP optimization pass:** every on-page image regenerated as right-sized WebP (full-bleed capped 1600px, gallery 1200px; q78–80). Served image payload dropped **7.4MB → 2.0MB (73% smaller)**. Original JPGs retained in-repo as fallback/archive (no deletes). On-page `<img>`/preloads point to `.webp`; OG `<meta>` still points to `.jpg`.
 
 ## If upgrades are wanted later
 Andi could add an aerial/drone reel still or a fresh portrait. If any slot ever needs generation, follow the standard tier order (Grok → Gemini), but for this brand real photography will almost always beat generated filler.

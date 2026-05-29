@@ -84,6 +84,7 @@ tailwind.config = {
 </style>
 </head>
 <body>
+<a href="#top" class="sr-only focus:not-sr-only focus:fixed focus:z-[100] focus:top-2 focus:left-2 focus:bg-ink focus:text-bg focus:px-4 focus:py-2 focus:text-sm">Skip to content</a>
 
 <!-- TOP MARQUEE -->
 <div class="bg-ink text-bg overflow-hidden text-sm">
@@ -99,7 +100,7 @@ tailwind.config = {
     <span class="font-bold">ANDI REISS / INDEX</span>
     <div class="flex items-center gap-3 md:gap-5 text-mute">
       <span class="hidden sm:inline">33.83°N 116.54°W</span>
-      <span id="clock" class="text-ink">--:--:-- PST</span>
+      <span id="clock" class="text-ink" aria-hidden="true">--:--:-- PST</span>
       <a href="#desk" class="b1 px-3 py-1 text-ink hover:bg-ink hover:text-bg transition-colors">CONTACT</a>
     </div>
   </div>
@@ -149,7 +150,7 @@ tailwind.config = {
       <div class="detail px-4">
         <div class="grid md:grid-cols-3 gap-5 pb-6 items-center">
           <p class="md:col-span-2 text-sm leading-relaxed text-bg/80">Thirty years of long-form, observational documentary — patience, proximity, and consent. From the Cannes-premiered feature <span class="uline">Cargo</span> to a current slate of six films in production across survivorship, ritual, activism and desert art.</p>
-          <img src="images/doc-uganda.jpg" class="thumb w-full h-32 object-cover b1" alt="Documentary portrait of a child in a red coat" loading="lazy">
+          <img src="images/doc-uganda.webp" class="thumb w-full h-32 object-cover b1" alt="Documentary portrait of a child in a red coat" loading="lazy" width="1600" height="1066">
         </div>
       </div>
     </div>
@@ -165,7 +166,7 @@ tailwind.config = {
       <div class="detail px-4">
         <div class="grid md:grid-cols-3 gap-5 pb-6 items-center">
           <p class="md:col-span-2 text-sm leading-relaxed text-bg/80">Two decades of observation — portraiture, street, wildlife, fashion, food and documentary. Rooted in patience and the real moment over the staged one. London, New York, Manila, the American desert.</p>
-          <img src="images/doc-manhattan-bridge.jpg" class="thumb w-full h-32 object-cover b1" alt="The Manhattan Bridge framed between buildings" loading="lazy">
+          <img src="images/doc-manhattan-bridge.webp" class="thumb w-full h-32 object-cover b1" alt="The Manhattan Bridge framed between buildings" loading="lazy" width="1200" height="1200">
         </div>
       </div>
     </div>
@@ -181,7 +182,7 @@ tailwind.config = {
       <div class="detail px-4">
         <div class="grid md:grid-cols-3 gap-5 pb-6 items-center">
           <p class="md:col-span-2 text-sm leading-relaxed text-bg/80">Commercially certified aerial cinematography (FAA Part 107, October 2025), including search-and-rescue support applications. The newest tool in a thirty-year kit.</p>
-          <img src="images/land-boulder.jpg" class="thumb w-full h-32 object-cover b1" alt="A balancing boulder on a beach under blue sky" loading="lazy">
+          <img src="images/land-boulder.webp" class="thumb w-full h-32 object-cover b1" alt="A balancing boulder on a beach under blue sky" loading="lazy" width="900" height="1200">
         </div>
       </div>
     </div>
@@ -197,7 +198,7 @@ tailwind.config = {
       <div class="detail px-4">
         <div class="grid md:grid-cols-3 gap-5 pb-6 items-center">
           <p class="md:col-span-2 text-sm leading-relaxed text-bg/80">Screenplays, articles, and a forthcoming 600-page travelogue — <span class="uline">Somewhere, America</span> — built from a five-month road trip: essays, photographs and cartoons.</p>
-          <img src="images/land-moonrise.jpg" class="thumb w-full h-32 object-cover b1" alt="A full moon rising over a dusty road at dusk" loading="lazy">
+          <img src="images/land-moonrise.webp" class="thumb w-full h-32 object-cover b1" alt="A full moon rising over a dusty road at dusk" loading="lazy" width="1199" height="1600">
         </div>
       </div>
     </div>
@@ -213,7 +214,7 @@ tailwind.config = {
       <div class="detail px-4">
         <div class="grid md:grid-cols-3 gap-5 pb-6 items-center">
           <p class="md:col-span-2 text-sm leading-relaxed text-bg/80">Editing, sound design and finishing — a member of British Film Editors. The whole back half of the pipeline, in-house.</p>
-          <img src="images/tex-pool.jpg" class="thumb w-full h-32 object-cover b1" alt="Abstract turquoise pool water ripples" loading="lazy">
+          <img src="images/tex-pool.webp" class="thumb w-full h-32 object-cover b1" alt="Abstract turquoise pool water ripples" loading="lazy" width="900" height="1200">
         </div>
       </div>
     </div>
@@ -229,7 +230,7 @@ tailwind.config = {
       <div class="detail px-4">
         <div class="grid md:grid-cols-3 gap-5 pb-6 items-center">
           <p class="md:col-span-2 text-sm leading-relaxed text-bg/80">Cartoons, digital art and projection mapping — the playful end of a serious practice, woven through the books and films.</p>
-          <img src="images/land-aurora.jpg" class="thumb w-full h-32 object-cover b1" alt="Aurora borealis over a lone tree" loading="lazy">
+          <img src="images/land-aurora.webp" class="thumb w-full h-32 object-cover b1" alt="Aurora borealis over a lone tree" loading="lazy" width="983" height="1200">
         </div>
       </div>
     </div>
@@ -245,7 +246,7 @@ tailwind.config = {
       <div class="detail px-4">
         <div class="grid md:grid-cols-3 gap-5 pb-6 items-center">
           <p class="md:col-span-2 text-sm leading-relaxed text-bg/80">Adjunct professor (Idyllwild Arts), MET Film School, SAE and online — plus a PhD proposal on how digital platforms reshape society. TESOL certified, 2024.</p>
-          <img src="images/doc-microscope.jpg" class="thumb w-full h-32 object-cover b1" alt="A child looking into a microscope" loading="lazy">
+          <img src="images/doc-microscope.webp" class="thumb w-full h-32 object-cover b1" alt="A child looking into a microscope" loading="lazy" width="1430" height="1600">
         </div>
       </div>
     </div>
