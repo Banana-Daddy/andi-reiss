@@ -31,6 +31,7 @@
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="canonical" href="https://banana-daddy.github.io/andi-reiss/">
+<meta name="author" content="Andi Reiss">
 
 <script>document.documentElement.className = document.documentElement.className.replace('no-js','js');</script>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -52,19 +53,23 @@ tailwind.config = { theme:{ extend:{
   .card:hover img{ transform:scale(1.06); }
   .card .go{ transition:transform .3s ease; }
   .card:hover .go{ transform:translateX(6px); }
-  @media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+  a:focus-visible{ outline:2px solid #E0531F; outline-offset:4px; border-radius:6px; }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none!important}
+    .reveal, .js .reveal{ opacity:1 !important; transform:none !important; }
+  }
 </style>
 </head>
 <body>
 
 <header class="max-w-7xl mx-auto px-5 md:px-8 pt-10 md:pt-16">
   <div class="flex items-center justify-between text-xs tracking-[0.2em] uppercase text-ash">
-    <span class="display text-bone font-900 text-base tracking-tight">ANDI REISS</span>
+    <span class="display text-bone font-black text-base tracking-tight">ANDI REISS</span>
     <span>Mockups by Banana Bytes</span>
   </div>
   <div class="mt-16 md:mt-24 max-w-4xl reveal">
     <p class="text-ember text-xs tracking-[0.32em] uppercase mb-5">Trans-Media Producer &amp; Filmmaker · Three Directions</p>
-    <h1 class="display font-900 leading-[0.88]" style="font-size:clamp(2.6rem,9vw,7rem); letter-spacing:-0.05em">Same story.<br>Three ways<br>to tell it.</h1>
+    <h1 class="display font-black leading-[0.88]" style="font-size:clamp(2.6rem,9vw,7rem); letter-spacing:-0.05em">Same story.<br>Three ways<br>to tell it.</h1>
     <p class="mt-7 text-bone/70 text-base md:text-lg max-w-xl leading-relaxed">A career built on telling true things plainly — documentary, drama, photography, the written word. Here are three design routes for the portfolio. Open each, then pick the one that feels like you.</p>
   </div>
 </header>
@@ -80,7 +85,7 @@ tailwind.config = { theme:{ extend:{
       </div>
       <div class="p-7 md:p-12 flex flex-col justify-center order-2 md:order-1">
         <span class="text-ash text-xs tracking-[0.25em] uppercase mb-3">Direction 01</span>
-        <h2 class="display font-900 text-4xl md:text-5xl tracking-tight mb-3 group-hover:text-ember transition-colors">REEL</h2>
+        <h2 class="display font-black text-4xl md:text-5xl tracking-tight mb-3 group-hover:text-ember transition-colors">REEL</h2>
         <p class="text-bone/70 leading-relaxed mb-5 max-w-md">Cinema-black and letterboxed — a filmmaker's title sequence. Grain, timecode, and a scrolling filmstrip of documentary stills. Built to feel like the lights just went down.</p>
         <span class="text-ember text-sm tracking-wider uppercase flex items-center gap-2">View direction <span class="go">→</span></span>
       </div>
@@ -96,7 +101,7 @@ tailwind.config = { theme:{ extend:{
       </div>
       <div class="p-7 md:p-12 flex flex-col justify-center">
         <span class="text-ash text-xs tracking-[0.25em] uppercase mb-3">Direction 02</span>
-        <h2 class="display font-900 text-4xl md:text-5xl tracking-tight mb-3 group-hover:text-ember transition-colors">DISPATCH</h2>
+        <h2 class="display font-black text-4xl md:text-5xl tracking-tight mb-3 group-hover:text-ember transition-colors">DISPATCH</h2>
         <p class="text-bone/70 leading-relaxed mb-5 max-w-md">A Sunday broadsheet on a curious man — Bodoni masthead, datelines, drop caps and a Guardian pull-quote. Warm paper, ink, and the romance of print. For the author and journalist.</p>
         <span class="text-ember text-sm tracking-wider uppercase flex items-center gap-2">View direction <span class="go">→</span></span>
       </div>
@@ -112,7 +117,7 @@ tailwind.config = { theme:{ extend:{
       </div>
       <div class="p-7 md:p-12 flex flex-col justify-center order-2 md:order-1">
         <span class="text-ash text-xs tracking-[0.25em] uppercase mb-3">Direction 03</span>
-        <h2 class="display font-900 text-4xl md:text-5xl tracking-tight mb-3 group-hover:text-ember transition-colors">INDEX</h2>
+        <h2 class="display font-black text-4xl md:text-5xl tracking-tight mb-3 group-hover:text-ember transition-colors">INDEX</h2>
         <p class="text-bone/70 leading-relaxed mb-5 max-w-md">Terminal-raw and monospace — every discipline logged like a manifest. Clickable rows, GPS coordinates, a live clock and an FAA cert number. For the multi-hyphenate who does it all.</p>
         <span class="text-ember text-sm tracking-wider uppercase flex items-center gap-2">View direction <span class="go">→</span></span>
       </div>

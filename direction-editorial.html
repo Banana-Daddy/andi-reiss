@@ -31,6 +31,11 @@
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="canonical" href="https://banana-daddy.github.io/andi-reiss/direction-editorial.html">
+<meta name="author" content="Andi Reiss">
+<link rel="preload" as="image" href="images/doc-diner.jpg" fetchpriority="high">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Andi Reiss","jobTitle":"Documentarian, Author & Photographer","url":"https://banana-daddy.github.io/andi-reiss/","email":"andi@andireiss.com","telephone":"+1-760-902-0497","address":{"@type":"PostalAddress","addressLocality":"Palm Springs","addressRegion":"CA","addressCountry":"US"},"sameAs":["https://www.linkedin.com/in/andi-reiss-285086173/","https://www.imdb.com/name/nm1633061/"],"knowsAbout":["Documentary film","Photography","Screenwriting","Travel writing","Sound design","Education"]}
+</script>
 
 <script>document.documentElement.className = document.documentElement.className.replace('no-js','js');</script>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -71,7 +76,11 @@ tailwind.config = {
   .duo{ filter:grayscale(1) contrast(1.05); }
   .ticker{ display:flex; width:max-content; animation:tick 40s linear infinite; }
   @keyframes tick{ to{ transform:translateX(-50%); } }
-  @media (prefers-reduced-motion: reduce){ .ticker{animation:none} *{scroll-behavior:auto} }
+  a:focus-visible, button:focus-visible{ outline:2px solid #B23A1E; outline-offset:3px; border-radius:2px; }
+  @media (prefers-reduced-motion: reduce){
+    .ticker{animation:none} *{scroll-behavior:auto}
+    .reveal, .js .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
+  }
 </style>
 </head>
 <body class="antialiased">
@@ -91,7 +100,7 @@ tailwind.config = {
     <span class="hidden sm:block">Est. 1992 · Vol. XXXII</span>
     <span>Price: Your Attention</span>
   </div>
-  <h1 class="serif font-700 text-center leading-[0.9] py-6 md:py-8" style="font-size:clamp(3rem,12vw,9rem); letter-spacing:-0.02em">ANDI REISS</h1>
+  <h1 class="serif font-bold text-center leading-[0.9] py-6 md:py-8" style="font-size:clamp(3rem,12vw,9rem); letter-spacing:-0.02em">ANDI REISS</h1>
   <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center text-xs sm:text-sm uppercase tracking-[0.22em] text-ink border-y rule py-3">
     <span>Documentarian</span><span class="text-news hidden sm:inline">·</span>
     <span>Author</span><span class="text-news hidden sm:inline">·</span>
@@ -113,7 +122,7 @@ tailwind.config = {
     <!-- Lead column -->
     <article class="md:col-span-7 reveal">
       <p class="kicker mb-3">The Front Page · Profile</p>
-      <h2 class="serif font-600 leading-[1.02] mb-4" style="font-size:clamp(2rem,5vw,3.4rem)">Proof that untreated curiosity can become a career.</h2>
+      <h2 class="serif font-semibold leading-[1.02] mb-4" style="font-size:clamp(2rem,5vw,3.4rem)">Proof that untreated curiosity can become a career.</h2>
       <p class="text-warm text-sm mb-6 mono">By the desk of A. Reiss &nbsp;|&nbsp; Filed from the California desert</p>
       <div class="text-[1.02rem] leading-[1.7] cols-2 text-ink/90">
         <p class="dropcap mb-4">For three decades the work of Andi Reiss has refused to sit still. A media producer who became a documentarian, who became a journalist, an author, a screenwriter, a photographer, a commercial drone pilot, an editor, a sound designer, an illustrator and an educator — not by indecision, but by appetite.</p>
@@ -142,38 +151,38 @@ tailwind.config = {
 <!-- THE SLATE -->
 <section id="slate" class="max-w-6xl mx-auto px-5 md:px-8 py-14 md:py-20">
   <div class="flex items-baseline justify-between border-b-2 rule pb-3 mb-8" style="border-color:#16130F">
-    <h2 class="serif font-700 text-3xl md:text-4xl">The Slate</h2>
+    <h2 class="serif font-bold text-3xl md:text-4xl">The Slate</h2>
     <span class="kicker">In Production · 2025—26</span>
   </div>
   <div class="grid md:grid-cols-3 gap-x-8 gap-y-10">
     <article class="reveal">
       <p class="mono text-xs text-news mb-2">DOCUMENTARY</p>
-      <h3 class="serif font-600 text-2xl mb-2 leading-tight">A Small Stone</h3>
+      <h3 class="serif font-semibold text-2xl mb-2 leading-tight">A Small Stone</h3>
       <p class="text-ink/80 text-sm leading-relaxed">An intimate documentary built on patience and proximity — the small thing that turns out to hold everything.</p>
     </article>
     <article class="reveal">
       <p class="mono text-xs text-news mb-2">DOCUMENTARY · SURVIVOR'S STORY</p>
-      <h3 class="serif font-600 text-2xl mb-2 leading-tight">Club Q</h3>
+      <h3 class="serif font-semibold text-2xl mb-2 leading-tight">Club Q</h3>
       <p class="text-ink/80 text-sm leading-relaxed">Survivorship, community and resilience after tragedy — told with the consent and the cadence of those who lived it.</p>
     </article>
     <article class="reveal">
       <p class="mono text-xs text-news mb-2">DOCUMENTARY · DESERT</p>
-      <h3 class="serif font-600 text-2xl mb-2 leading-tight">Shifting Sands</h3>
+      <h3 class="serif font-semibold text-2xl mb-2 leading-tight">Shifting Sands</h3>
       <p class="text-ink/80 text-sm leading-relaxed">Artists of the desert — a portrait of art, heat and reinvention shot across the Coachella Valley.</p>
     </article>
     <article class="reveal">
       <p class="mono text-xs text-news mb-2">ETHNOGRAPHIC</p>
-      <h3 class="serif font-600 text-2xl mb-2 leading-tight">Ayahuasca Experiment</h3>
+      <h3 class="serif font-semibold text-2xl mb-2 leading-tight">Ayahuasca Experiment</h3>
       <p class="text-ink/80 text-sm leading-relaxed">A study of ritual, perception and the boundary between belief and evidence.</p>
     </article>
     <article class="reveal">
       <p class="mono text-xs text-news mb-2">DOCUMENTARY · PROFILE</p>
-      <h3 class="serif font-600 text-2xl mb-2 leading-tight">Patriot of the Streets</h3>
+      <h3 class="serif font-semibold text-2xl mb-2 leading-tight">Patriot of the Streets</h3>
       <p class="text-ink/80 text-sm leading-relaxed">The Ted Hayes story — a life of homelessness, activism and a refusal to be invisible.</p>
     </article>
     <article class="reveal">
       <p class="mono text-xs text-news mb-2">DOCUMENTARY · DEVELOPMENT</p>
-      <h3 class="serif font-600 text-2xl mb-2 leading-tight">‘trans and.’</h3>
+      <h3 class="serif font-semibold text-2xl mb-2 leading-tight">‘trans and.’</h3>
       <p class="text-ink/80 text-sm leading-relaxed">Identity beyond the headline — a film that lets its subjects define their own terms.</p>
     </article>
   </div>
@@ -183,7 +192,7 @@ tailwind.config = {
 <section id="essay" class="bg-ink text-paper py-16 md:py-24">
   <div class="max-w-6xl mx-auto px-5 md:px-8">
     <div class="flex items-baseline justify-between border-b rule pb-3 mb-10" style="border-color:rgba(247,243,234,.2)">
-      <h2 class="serif font-700 text-3xl md:text-4xl text-paper">Photo Essay</h2>
+      <h2 class="serif font-bold text-3xl md:text-4xl text-paper">Photo Essay</h2>
       <span class="kicker">Field Work · Selected</span>
     </div>
     <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 [&>*]:mb-4">
@@ -208,7 +217,7 @@ tailwind.config = {
     </div>
     <div class="md:col-span-7 reveal">
       <p class="kicker mb-3">The Book · Forthcoming</p>
-      <h2 class="serif font-700 leading-[1.0] mb-5" style="font-size:clamp(2.2rem,6vw,4rem)">Somewhere,<br><span class="italic">America</span></h2>
+      <h2 class="serif font-bold leading-[1.0] mb-5" style="font-size:clamp(2.2rem,6vw,4rem)">Somewhere,<br><span class="italic">America</span></h2>
       <p class="text-ink/85 text-lg leading-[1.7] mb-4">Five months. One road trip across the United States. A 600-page travelogue of essays, photographs and cartoons — the country observed from the passenger window of an untreated curiosity.</p>
       <p class="text-warm text-sm mono">Manuscript in progress · essays · photography · cartoons</p>
     </div>
@@ -229,7 +238,7 @@ tailwind.config = {
 <footer id="desk" class="max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24">
   <div class="text-center reveal">
     <p class="kicker mb-4">From the Desk</p>
-    <h2 class="serif font-700 leading-[1.0] mb-8" style="font-size:clamp(2.4rem,8vw,6rem)">Write to the editor.</h2>
+    <h2 class="serif font-bold leading-[1.0] mb-8" style="font-size:clamp(2.4rem,8vw,6rem)">Write to the editor.</h2>
   </div>
   <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 border-t-2 rule pt-10 reveal" style="border-color:#16130F">
     <div><p class="mono text-xs text-warm uppercase tracking-widest mb-2">Email</p><a href="mailto:andi@andireiss.com" class="serif text-xl link-u">andi@andireiss.com</a></div>

@@ -31,6 +31,10 @@
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="canonical" href="https://banana-daddy.github.io/andi-reiss/direction-archive.html">
+<meta name="author" content="Andi Reiss">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Andi Reiss","jobTitle":"Trans-Media Producer & Filmmaker","url":"https://banana-daddy.github.io/andi-reiss/","email":"andi@andireiss.com","telephone":"+1-760-902-0497","address":{"@type":"PostalAddress","addressLocality":"Palm Springs","addressRegion":"CA","addressCountry":"US"},"sameAs":["https://www.linkedin.com/in/andi-reiss-285086173/","https://www.imdb.com/name/nm1633061/"],"knowsAbout":["Documentary film","Photography","Drone cinematography","Screenwriting","Sound design","Illustration","Education"]}
+</script>
 
 <script>document.documentElement.className = document.documentElement.className.replace('no-js','js');</script>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -38,7 +42,7 @@
 tailwind.config = {
   theme: {
     extend: {
-      colors: { bg:'#EAE8E1', ink:'#111110', haz:'#FF4D00', mute:'#6f6c64' },
+      colors: { bg:'#EAE8E1', ink:'#111110', haz:'#FF4D00', mute:'#605d54' },
       fontFamily: { mono:['"Space Mono"','monospace'], sans:['"Public Sans"','system-ui','sans-serif'] },
     },
   },
@@ -70,7 +74,13 @@ tailwind.config = {
   .row.open .plus{ transform:rotate(45deg); }
   .thumb{ filter:grayscale(1) contrast(1.1); opacity:.85; }
   .uline{ text-decoration:none; border-bottom:1px solid currentColor; }
-  @media (prefers-reduced-motion: reduce){ .marq{animation:none} *{scroll-behavior:auto} }
+  /* keep muted numbers legible when a row inverts to dark */
+  .row:hover .text-mute, .row.open .text-mute{ color:rgba(234,232,225,.65); }
+  a:focus-visible, button:focus-visible, [data-row]:focus-visible{ outline:2px solid #FF4D00; outline-offset:2px; }
+  @media (prefers-reduced-motion: reduce){
+    .marq{animation:none} *{scroll-behavior:auto}
+    .reveal, .js .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
+  }
 </style>
 </head>
 <body>
@@ -86,7 +96,7 @@ tailwind.config = {
 <!-- HEADER BAR -->
 <header id="top" class="bb">
   <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between text-xs md:text-sm">
-    <span class="font-700">ANDI REISS / INDEX</span>
+    <span class="font-bold">ANDI REISS / INDEX</span>
     <div class="flex items-center gap-3 md:gap-5 text-mute">
       <span class="hidden sm:inline">33.83°N 116.54°W</span>
       <span id="clock" class="text-ink">--:--:-- PST</span>
@@ -100,17 +110,17 @@ tailwind.config = {
   <div class="grid md:grid-cols-12 gap-0 bb">
     <div class="md:col-span-8 py-10 md:py-16 md:pr-8 reveal">
       <p class="text-haz text-xs uppercase tracking-[0.3em] mb-5">Doc. No. AR-0001 / Classification: Multi-disciplinary</p>
-      <h1 class="sans font-600 leading-[0.92]" style="font-size:clamp(2.6rem,9vw,7rem); letter-spacing:-0.03em">A manifest of untreated curiosity.</h1>
+      <h1 class="sans font-semibold leading-[0.92]" style="font-size:clamp(2.6rem,9vw,7rem); letter-spacing:-0.03em">A manifest of untreated curiosity.</h1>
       <p class="mt-6 max-w-xl text-ink/75 text-sm leading-relaxed">
         One person. Fourteen disciplines. Thirty years of telling true stories through film, sound, the still frame and the written word. This is the complete index — every line clickable, nothing hidden.
       </p>
     </div>
     <div class="md:col-span-4 b1 md:border-y-0 md:border-r-0 md:border-l flex flex-col">
-      <div class="bb p-5 flex justify-between text-sm"><span class="text-mute">SUBJECT</span><span class="font-700">Andi Reiss</span></div>
-      <div class="bb p-5 flex justify-between text-sm"><span class="text-mute">ROLE</span><span class="font-700 text-right">Trans-Media<br>Producer</span></div>
-      <div class="bb p-5 flex justify-between text-sm"><span class="text-mute">BASE</span><span class="font-700">Palm Springs, CA</span></div>
-      <div class="bb p-5 flex justify-between text-sm"><span class="text-mute">CERT</span><span class="font-700">FAA Part 107</span></div>
-      <div class="p-5 flex justify-between text-sm"><span class="text-mute">STATUS</span><span class="haz text-haz font-700">● ACTIVE</span></div>
+      <div class="bb p-5 flex justify-between text-sm"><span class="text-mute">SUBJECT</span><span class="font-bold">Andi Reiss</span></div>
+      <div class="bb p-5 flex justify-between text-sm"><span class="text-mute">ROLE</span><span class="font-bold text-right">Trans-Media<br>Producer</span></div>
+      <div class="bb p-5 flex justify-between text-sm"><span class="text-mute">BASE</span><span class="font-bold">Palm Springs, CA</span></div>
+      <div class="bb p-5 flex justify-between text-sm"><span class="text-mute">CERT</span><span class="font-bold">FAA Part 107</span></div>
+      <div class="p-5 flex justify-between text-sm"><span class="text-mute">STATUS</span><span class="haz text-haz font-bold">● ACTIVE</span></div>
     </div>
   </div>
 </section>
@@ -131,7 +141,7 @@ tailwind.config = {
     <div class="row bb open" data-row>
       <div class="grid grid-cols-12 px-4 py-4 items-center gap-2">
         <span class="col-span-2 md:col-span-1 text-mute">01</span>
-        <span class="col-span-8 md:col-span-4 font-700 text-base md:text-lg">Documentary Film</span>
+        <span class="col-span-8 md:col-span-4 font-bold text-base md:text-lg">Documentary Film</span>
         <span class="hidden md:block col-span-3 text-sm haz">Director / Producer</span>
         <span class="hidden md:block col-span-3 text-sm">Field → final cut</span>
         <span class="col-span-2 md:col-span-1 text-right plus text-xl">+</span>
@@ -147,7 +157,7 @@ tailwind.config = {
     <div class="row bb" data-row>
       <div class="grid grid-cols-12 px-4 py-4 items-center gap-2">
         <span class="col-span-2 md:col-span-1 text-mute">02</span>
-        <span class="col-span-8 md:col-span-4 font-700 text-base md:text-lg">Photography</span>
+        <span class="col-span-8 md:col-span-4 font-bold text-base md:text-lg">Photography</span>
         <span class="hidden md:block col-span-3 text-sm haz">Documentary / Street</span>
         <span class="hidden md:block col-span-3 text-sm">35mm sensibility</span>
         <span class="col-span-2 md:col-span-1 text-right plus text-xl">+</span>
@@ -163,7 +173,7 @@ tailwind.config = {
     <div class="row bb" data-row>
       <div class="grid grid-cols-12 px-4 py-4 items-center gap-2">
         <span class="col-span-2 md:col-span-1 text-mute">03</span>
-        <span class="col-span-8 md:col-span-4 font-700 text-base md:text-lg">Drone Cinematography</span>
+        <span class="col-span-8 md:col-span-4 font-bold text-base md:text-lg">Drone Cinematography</span>
         <span class="hidden md:block col-span-3 text-sm haz">FAA Part 107</span>
         <span class="hidden md:block col-span-3 text-sm">Aerial / SAR support</span>
         <span class="col-span-2 md:col-span-1 text-right plus text-xl">+</span>
@@ -179,7 +189,7 @@ tailwind.config = {
     <div class="row bb" data-row>
       <div class="grid grid-cols-12 px-4 py-4 items-center gap-2">
         <span class="col-span-2 md:col-span-1 text-mute">04</span>
-        <span class="col-span-8 md:col-span-4 font-700 text-base md:text-lg">Writing &amp; Screenplays</span>
+        <span class="col-span-8 md:col-span-4 font-bold text-base md:text-lg">Writing &amp; Screenplays</span>
         <span class="hidden md:block col-span-3 text-sm haz">Author / Screenwriter</span>
         <span class="hidden md:block col-span-3 text-sm">Feature &amp; long-form</span>
         <span class="col-span-2 md:col-span-1 text-right plus text-xl">+</span>
@@ -195,7 +205,7 @@ tailwind.config = {
     <div class="row bb" data-row>
       <div class="grid grid-cols-12 px-4 py-4 items-center gap-2">
         <span class="col-span-2 md:col-span-1 text-mute">05</span>
-        <span class="col-span-8 md:col-span-4 font-700 text-base md:text-lg">Post-Production &amp; Sound</span>
+        <span class="col-span-8 md:col-span-4 font-bold text-base md:text-lg">Post-Production &amp; Sound</span>
         <span class="hidden md:block col-span-3 text-sm haz">Editor / Designer</span>
         <span class="hidden md:block col-span-3 text-sm">Cut · sound · colour</span>
         <span class="col-span-2 md:col-span-1 text-right plus text-xl">+</span>
@@ -211,7 +221,7 @@ tailwind.config = {
     <div class="row bb" data-row>
       <div class="grid grid-cols-12 px-4 py-4 items-center gap-2">
         <span class="col-span-2 md:col-span-1 text-mute">06</span>
-        <span class="col-span-8 md:col-span-4 font-700 text-base md:text-lg">Illustration &amp; Cartoons</span>
+        <span class="col-span-8 md:col-span-4 font-bold text-base md:text-lg">Illustration &amp; Cartoons</span>
         <span class="hidden md:block col-span-3 text-sm haz">Pen / Digital</span>
         <span class="hidden md:block col-span-3 text-sm">Editorial &amp; art</span>
         <span class="col-span-2 md:col-span-1 text-right plus text-xl">+</span>
@@ -227,7 +237,7 @@ tailwind.config = {
     <div class="row" data-row>
       <div class="grid grid-cols-12 px-4 py-4 items-center gap-2">
         <span class="col-span-2 md:col-span-1 text-mute">07</span>
-        <span class="col-span-8 md:col-span-4 font-700 text-base md:text-lg">Education</span>
+        <span class="col-span-8 md:col-span-4 font-bold text-base md:text-lg">Education</span>
         <span class="hidden md:block col-span-3 text-sm haz">Professor / Tutor</span>
         <span class="hidden md:block col-span-3 text-sm">University &amp; online</span>
         <span class="col-span-2 md:col-span-1 text-right plus text-xl">+</span>
@@ -249,12 +259,12 @@ tailwind.config = {
     <span class="text-xs text-mute">2025—26</span>
   </div>
   <div class="b1 grid sm:grid-cols-2 lg:grid-cols-3">
-    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">001 / DOCUMENTARY</p><h3 class="sans font-600 text-xl mb-2">A Small Stone</h3><p class="text-sm opacity-70">Patience and proximity — the small thing that holds everything.</p></div>
-    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">002 / SURVIVOR'S STORY</p><h3 class="sans font-600 text-xl mb-2">Club Q</h3><p class="text-sm opacity-70">Survivorship and community after tragedy.</p></div>
-    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">003 / DESERT</p><h3 class="sans font-600 text-xl mb-2">Shifting Sands</h3><p class="text-sm opacity-70">Artists of the Coachella Valley.</p></div>
-    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">004 / ETHNOGRAPHIC</p><h3 class="sans font-600 text-xl mb-2">Ayahuasca Experiment</h3><p class="text-sm opacity-70">Ritual, perception and evidence.</p></div>
-    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">005 / PROFILE</p><h3 class="sans font-600 text-xl mb-2">Patriot of the Streets</h3><p class="text-sm opacity-70">The Ted Hayes story.</p></div>
-    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">006 / DEVELOPMENT</p><h3 class="sans font-600 text-xl mb-2">‘trans and.’</h3><p class="text-sm opacity-70">Identity beyond the headline.</p></div>
+    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">001 / DOCUMENTARY</p><h3 class="sans font-semibold text-xl mb-2">A Small Stone</h3><p class="text-sm opacity-70">Patience and proximity — the small thing that holds everything.</p></div>
+    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">002 / SURVIVOR'S STORY</p><h3 class="sans font-semibold text-xl mb-2">Club Q</h3><p class="text-sm opacity-70">Survivorship and community after tragedy.</p></div>
+    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">003 / DESERT</p><h3 class="sans font-semibold text-xl mb-2">Shifting Sands</h3><p class="text-sm opacity-70">Artists of the Coachella Valley.</p></div>
+    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">004 / ETHNOGRAPHIC</p><h3 class="sans font-semibold text-xl mb-2">Ayahuasca Experiment</h3><p class="text-sm opacity-70">Ritual, perception and evidence.</p></div>
+    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">005 / PROFILE</p><h3 class="sans font-semibold text-xl mb-2">Patriot of the Streets</h3><p class="text-sm opacity-70">The Ted Hayes story.</p></div>
+    <div class="b1 -m-px p-5 reveal hover:bg-ink hover:text-bg transition-colors"><p class="text-haz text-xs mb-3">006 / DEVELOPMENT</p><h3 class="sans font-semibold text-xl mb-2">‘trans and.’</h3><p class="text-sm opacity-70">Identity beyond the headline.</p></div>
   </div>
 </section>
 
@@ -264,7 +274,7 @@ tailwind.config = {
     <h2 class="text-sm uppercase tracking-[0.3em] text-bg/50 mb-8">§03 — Dossier</h2>
     <div class="grid md:grid-cols-12 gap-8">
       <blockquote class="md:col-span-7">
-        <p class="sans text-2xl md:text-4xl leading-snug font-500">“A raw and honest approach that stands out — <span class="text-haz">emphasising truth over artifice.</span>”</p>
+        <p class="sans text-2xl md:text-4xl leading-snug font-medium">“A raw and honest approach that stands out — <span class="text-haz">emphasising truth over artifice.</span>”</p>
         <cite class="not-italic text-sm text-bg/60 block mt-5">— James Christopher, The Guardian</cite>
       </blockquote>
       <div class="md:col-span-5 grid grid-cols-2 gap-x-6 gap-y-6 text-sm self-center">
@@ -280,31 +290,31 @@ tailwind.config = {
 <!-- CONTACT -->
 <footer id="desk" class="max-w-7xl mx-auto px-4 md:px-6 py-14 md:py-20">
   <h2 class="text-sm uppercase tracking-[0.3em] text-mute mb-6">§04 — Open a Line</h2>
-  <p class="sans font-600 leading-[0.95] mb-10" style="font-size:clamp(2.2rem,8vw,5.5rem); letter-spacing:-0.03em">Every line<br>is clickable.</p>
+  <p class="sans font-semibold leading-[0.95] mb-10" style="font-size:clamp(2.2rem,8vw,5.5rem); letter-spacing:-0.03em">Every line<br>is clickable.</p>
   <div class="b1">
     <a href="mailto:andi@andireiss.com" class="row bb grid grid-cols-12 px-4 py-5 items-center" style="cursor:pointer">
       <span class="col-span-3 md:col-span-2 text-mute text-sm">EMAIL</span>
-      <span class="col-span-8 md:col-span-9 font-700 text-base md:text-xl">andi@andireiss.com</span>
+      <span class="col-span-8 md:col-span-9 font-bold text-base md:text-xl">andi@andireiss.com</span>
       <span class="col-span-1 text-right haz">↗</span>
     </a>
     <a href="tel:+17609020497" class="row bb grid grid-cols-12 px-4 py-5 items-center" style="cursor:pointer">
       <span class="col-span-3 md:col-span-2 text-mute text-sm">US TEL</span>
-      <span class="col-span-8 md:col-span-9 font-700 text-base md:text-xl">+1 (760) 902 0497</span>
+      <span class="col-span-8 md:col-span-9 font-bold text-base md:text-xl">+1 (760) 902 0497</span>
       <span class="col-span-1 text-right haz">↗</span>
     </a>
     <a href="tel:+447775713363" class="row bb grid grid-cols-12 px-4 py-5 items-center" style="cursor:pointer">
       <span class="col-span-3 md:col-span-2 text-mute text-sm">UK TEL</span>
-      <span class="col-span-8 md:col-span-9 font-700 text-base md:text-xl">+44 (0) 777 571 3363</span>
+      <span class="col-span-8 md:col-span-9 font-bold text-base md:text-xl">+44 (0) 777 571 3363</span>
       <span class="col-span-1 text-right haz">↗</span>
     </a>
     <a href="https://www.linkedin.com/in/andi-reiss-285086173/" target="_blank" rel="noopener" class="row bb grid grid-cols-12 px-4 py-5 items-center" style="cursor:pointer">
       <span class="col-span-3 md:col-span-2 text-mute text-sm">LINKEDIN</span>
-      <span class="col-span-8 md:col-span-9 font-700 text-base md:text-xl">/in/andi-reiss</span>
+      <span class="col-span-8 md:col-span-9 font-bold text-base md:text-xl">/in/andi-reiss</span>
       <span class="col-span-1 text-right haz">↗</span>
     </a>
     <a href="https://www.imdb.com/name/nm1633061/" target="_blank" rel="noopener" class="row grid grid-cols-12 px-4 py-5 items-center" style="cursor:pointer">
       <span class="col-span-3 md:col-span-2 text-mute text-sm">IMDB</span>
-      <span class="col-span-8 md:col-span-9 font-700 text-base md:text-xl">nm1633061</span>
+      <span class="col-span-8 md:col-span-9 font-bold text-base md:text-xl">nm1633061</span>
       <span class="col-span-1 text-right haz">↗</span>
     </a>
   </div>
@@ -319,9 +329,16 @@ tailwind.config = {
 </div>
 
 <script>
-  // expandable rows
+  // expandable rows — keyboard + screen-reader accessible
   document.querySelectorAll('[data-row]').forEach(function(r){
-    r.addEventListener('click', function(){ r.classList.toggle('open'); });
+    r.setAttribute('role', 'button');
+    r.setAttribute('tabindex', '0');
+    r.setAttribute('aria-expanded', r.classList.contains('open') ? 'true' : 'false');
+    function toggle(){ var open = r.classList.toggle('open'); r.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+    r.addEventListener('click', toggle);
+    r.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
   });
   // reveal
   var io = new IntersectionObserver(function(entries){
